@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>My Lemonade Stand</title>
 	<!-- Include Bootstrap CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 	<div class="container-fluid">
@@ -85,47 +88,47 @@
             const freezerButton = document.getElementById('freezerButton');
             const inventoryDisplay = document.getElementById('inventoryDisplay');
 
-            // Add event listeners to the buttons to display inventory items
-            pantryButton.addEventListener('click', function() {
-                // Access items in pantry and display them in the inventoryDisplay div
-                inventoryDisplay.innerHTML = '<p>Pantry items:</p><ul>';
-                // Loop through pantry items and add them to the list
-                for (const item in inventory) {
-                    if (inventory[item].storageLocation === "pantry") {
-                        // create a new li element for the item
-                        const itemLi = document.createElement("li");
+            function buildDisplay(item, storageLocation) {
+                const itemLi = document.createElement("li");
                         itemLi.classList.add("inventory-item");
-                        // Add the item's name and quantity to the li
                         itemLi.textContent = `${item}: ${inventory[item].quantity}`;
-                        // Add the item's li to the pantry
-                        pantry.appendChild(itemLi);
+                        document.querySelector(`#${storageLocation}`).appendChild(itemLi);
+            }
+
+            function loadFridgeView() {
+                // Access items in fridge and display them in the inventoryDisplay div
+                inventoryDisplay.innerHTML = '<p>Fridge items:</p>';
+                // Loop through fridge items and add them to the list
+                for (const item in inventory) {
+                    if (inventory[item].storageLocation === "fridge") {
+                        buildDisplay(item, "fridge");
                     }
                 }
-                console.info(inventory);
-                inventoryDisplay.innerHTML += '</ul>';
-            });
-
-            fridgeButton.addEventListener('click', function() {
-                // Access items in fridge and display them in the inventoryDisplay div
-                inventoryDisplay.innerHTML = '<p>Fridge items:</p><ul>';
-                // Loop through fridge items and add them to the list
-                // Replace the following example code with your own code to display fridge items
-                inventoryDisplay.innerHTML += '<li>Example item 3</li>';
-                inventoryDisplay.innerHTML += '<li>Example item 4</li>';
-                inventoryDisplay.innerHTML += '</ul>';
-            });
+            }
 
             function loadFreezerView() {
-                // Access items in freezer and display them in the freezerDisplay
                 inventoryDisplay.innerHTML = '<p>Freezer items:</p>';
+                for (const item in inventory) {
+                    if (inventory[item].storageLocation === "freezer") {
+                        buildDisplay(item, "freezer");
+                    }
+                }
+            }
+
+            function loadPantryView() {
+                inventoryDisplay.innerHTML = '<p>Pantry items:</p>';
+                for (const item in inventory) {
+                    if (inventory[item].storageLocation === "pantry") {
+                        buildDisplay(item, "pantry");
+                    }
+                }
             }
 
             // Event Listeners
             freezerButton.addEventListener('click', loadFreezerView);
+            fridgeButton.addEventListener('click', loadFridgeView);
+            pantryButton.addEventListener('click', loadPantryView);
         };	
-
-        
-
 
         document.addEventListener("DOMContentLoaded", homeScreen);
 	</script>
