@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My Lemonade Stand</title>
+	<!-- Include Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4">
+				<h1>Inventory</h1>
+				<button class="btn btn-primary mb-3" id="pantryButton">Pantry</button>
+				<button class="btn btn-primary mb-3" id="fridgeButton">Fridge</button>
+                <button class="btn btn-primary mb-3" id="freezerButton">Freezer</button>
+				<div id="inventoryList"></div>
+			</div>
+            <div id="inventoryDisplay"></div>
+			<div class="col-md-8">
+				<canvas id="lemonadeCanvas"></canvas>
+			</div>
+		</div>
+        <h1>My Inventory</h1>
+  
+        <ul id="pantry">
+          <!-- Pantry items will be added here -->
+        </ul>
+        
+        <ul id="fridge">
+          <!-- Fridge items will be added here -->
+        </ul>
+        <ul id="freezer">
+            <!-- Freezer items will be added here -->
+        </ul>
+	</div>
+	<!-- Include Bootstrap JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+    <script src="lemonade.js"></script>
+
+	<script>
+        function homeScreen() {
+            // Get references to the interface elements
+            const pantryButton = document.getElementById('pantryButton');
+            const fridgeButton = document.getElementById('fridgeButton');
+            const freezerButton = document.getElementById('freezerButton');
+            const inventoryDisplay = document.getElementById('inventoryDisplay');
+
+            // Add event listeners to the buttons to display inventory items
+            pantryButton.addEventListener('click', function() {
+                // Access items in pantry and display them in the inventoryDisplay div
+                inventoryDisplay.innerHTML = '<p>Pantry items:</p><ul>';
+                // Loop through pantry items and add them to the list
+                for (const item in inventory) {
+                    if (inventory[item].storageLocation === "pantry") {
+                        // create a new li element for the item
+                        const itemLi = document.createElement("li");
+                        itemLi.classList.add("inventory-item");
+                        // Add the item's name and quantity to the li
+                        itemLi.textContent = `${item}: ${inventory[item].quantity}`;
+                        // Add the item's li to the pantry
+                        pantry.appendChild(itemLi);
+                    }
+                }
+                console.info(inventory);
+                inventoryDisplay.innerHTML += '</ul>';
+            });
+
+            fridgeButton.addEventListener('click', function() {
+                // Access items in fridge and display them in the inventoryDisplay div
+                inventoryDisplay.innerHTML = '<p>Fridge items:</p><ul>';
+                // Loop through fridge items and add them to the list
+                // Replace the following example code with your own code to display fridge items
+                inventoryDisplay.innerHTML += '<li>Example item 3</li>';
+                inventoryDisplay.innerHTML += '<li>Example item 4</li>';
+                inventoryDisplay.innerHTML += '</ul>';
+            });
+
+            function loadFreezerView() {
+                // Access items in freezer and display them in the freezerDisplay
+                inventoryDisplay.innerHTML = '<p>Freezer items:</p>';
+            }
+
+            // Event Listeners
+            freezerButton.addEventListener('click', loadFreezerView);
+        };	
+
+        
+
+
+        document.addEventListener("DOMContentLoaded", homeScreen);
+	</script>
+</body>
+</html>

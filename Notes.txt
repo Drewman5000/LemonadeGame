@@ -1,0 +1,51 @@
+Here is a possible game design for a lemonade stand game modeled on the economic laws of supply and demand:
+
+Gameplay
+
+The player starts the game with a small amount of money and a few basic ingredients for making lemonade. They can then choose to open their lemonade stand at any time of day or on any day of the week. The price of lemonade will vary depending on the time of day, the day of the week, and the quality of the lemonade. The quality of the lemonade will depend on the ingredients used, the player's skill at making lemonade, and the weather conditions.
+
+Customers will arrive at the lemonade stand at random intervals. They will pay the price of lemonade and then leave. If the customer is satisfied with the lemonade, they will leave a positive review. If the customer is not satisfied with the lemonade, they will leave a negative review. Positive reviews will attract more customers, while negative reviews will deter customers.
+
+The player can use the money they earn to buy more ingredients, improve their lemonade stand, or advertise their lemonade stand. The goal of the game is to make as much money as possible.
+
+Inventory
+
+The following inventory items are available in the game:
+
+Lemons: Lemons are used to make lemonade. The more lemons you have, the more lemonade you can make.
+Sugar: Sugar is used to sweeten lemonade. The more sugar you have, the sweeter your lemonade will be.
+Water: Water is used to dilute lemonade. The more water you have, the less concentrated your lemonade will be.
+Ice: Ice is used to keep lemonade cold. The more ice you have, the colder your lemonade will be.
+The quality of lemonade is determined by the following factors:
+
+The type of lemons used: Some lemons are sweeter than others.
+The amount of sugar used: The more sugar you use, the sweeter your lemonade will be.
+The amount of water used: The less water you use, the more concentrated your lemonade will be.
+The amount of ice used: The more ice you use, the colder your lemonade will be.
+Customers
+
+The following customer types are available in the game:
+
+Regular customer: Regular customers are always willing to buy lemonade. They will pay the price of lemonade and then leave.
+Wealthy customer: Wealthy customers are willing to pay more for lemonade. They will pay a higher price for lemonade than regular customers.
+Cheap customer: Cheap customers are only willing to pay a low price for lemonade. They will only pay a low price for lemonade, even if the quality of the lemonade is high.
+Discerning customer: Discerning customers are only willing to buy high-quality lemonade. They will only buy lemonade that is made with fresh ingredients and that is well-made.
+The type of customer that arrives at the lemonade stand is determined by the following factors:
+
+The time of day: More wealthy customers are likely to arrive at the lemonade stand during the afternoon, while more cheap customers are likely to arrive at the lemonade stand during the morning.
+The day of the week: More discerning customers are likely to arrive at the lemonade stand on weekends, while more regular customers are likely to arrive at the lemonade stand during the week.
+The weather conditions: More customers are likely to arrive at the lemonade stand on hot days, while fewer customers are likely to arrive at the lemonade stand on cold days.
+Reviews
+
+Customers will leave a review after they buy lemonade from the lemonade stand. The review will be either positive or negative. Positive reviews will attract more customers, while negative reviews will deter customers.
+
+The type of review that a customer leaves is determined by the following factors:
+
+The quality of the lemonade: The higher the quality of the lemonade, the more likely the customer is to leave a positive review.
+The price of lemonade: The higher the price of lemonade, the less likely the customer is to leave a positive review.
+The customer's mood: A customer who is in a good mood is more likely to leave a positive review, while a customer who is in a bad mood is more likely to leave a negative review.
+Winning
+
+The player wins the game by making as much money as possible. The player can make money by selling lemonade, by getting positive reviews, and by advertising their lemonade stand.
+
+The player loses the game if they run out of money.
