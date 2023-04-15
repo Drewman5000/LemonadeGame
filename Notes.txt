@@ -49,3 +49,232 @@ Winning
 The player wins the game by making as much money as possible. The player can make money by selling lemonade, by getting positive reviews, and by advertising their lemonade stand.
 
 The player loses the game if they run out of money.
+
+
+
+    Create a JavaScript file and save it as game.js.
+    In the game.js file, create a function called calculateBatchFlavorProfile().
+    The calculateBatchFlavorProfile() function should take four arguments: the amount of sugar, the amount of lemons, the amount of water, and the amount of ice.
+    The calculateBatchFlavorProfile() function should first calculate the sweetness of the batch.
+    The calculateBatchFlavorProfile() function should then calculate the tartness of the batch.
+    The calculateBatchFlavorProfile() function should then calculate the wateriness of the batch.
+    The calculateBatchFlavorProfile() function should then return an object with the following properties: sweetness, tartness, wateriness, and temperature.
+    In the game.js file, create a function called main().
+    The main() function should call the calculateBatchFlavorProfile() function with the following arguments: the amount of sugar, the amount of lemons, the amount of water, and the amount of ice.
+    The main() function should then print the batch flavor profile to the console.
+
+Here is an example of the game.js file:
+
+function calculateBatchFlavorProfile(sugar, lemons, water, ice) {
+  // Calculate sweetness.
+  const sweetness = sugar / (sugar + lemons + water + ice);
+
+  // Calculate tartness.
+  const tartness = lemons / (sugar + lemons + water + ice);
+
+  // Calculate wateriness.
+  const wateriness = water / (sugar + lemons + water + ice);
+
+  // Calculate temperature.
+  const temperature = 20;
+
+  // Return an object with the following properties: sweetness, tartness, wateriness, and temperature.
+  return {
+    sweetness,
+    tartness,
+    wateriness,
+    temperature,
+  };
+}
+
+function main() {
+  // Get the amount of sugar from the user.
+  const sugar = prompt("How much sugar would you like to use?");
+
+  // Get the amount of lemons from the user.
+  const lemons = prompt("How many lemons would you like to use?");
+
+  // Get the amount of water from the user.
+  const water = prompt("How much water would you like to use?");
+
+  // Get the amount of ice from the user.
+  const ice = prompt("How much ice would you like to use?");
+
+  // Calculate the batch flavor profile.
+  const batchFlavorProfile = calculateBatchFlavorProfile(sugar, lemons, water, ice);
+
+  // Print the batch flavor profile to the console.
+  console.log("The batch flavor profile is:");
+  console.log(batchFlavorProfile);
+}
+
+main();
+
+This is just a basic example, and you can customize it to fit your needs. For example, you could add more ingredients, or you could change the way that the flavor profile is calculated.
+
+
+To derive stats for your Lemonade Sales object based on the inputs provided in the home screen, you could create a function that takes in the relevant parameters and calculates the sweetness and tartness of the drink. Here is an example implementation:
+
+javascript
+
+function calculateStats(sugarPercentage, sugarQuality, lemonPercentage, icePercentage, temperature) {
+  // Calculate sweetness based on sugar percentage and quality
+  const sweetness = sugarPercentage * sugarQuality * 0.8;
+
+  // Calculate tartness based on lemon percentage and adjust for ice and temperature
+  const tartness = lemonPercentage * 0.9 * (1 - icePercentage * 0.1) * (1 - temperature * 0.05);
+
+  return {
+    sweetness,
+    tartness
+  };
+}
+
+You can then call this function when building your Lemonade Sales object, passing in the relevant parameters:
+
+javascript
+
+const batchStats = calculateStats(sugarPercentage, sugarQuality, lemonPercentage, icePercentage, temperature);
+
+const lemonadeSales = {
+  batchStats,
+  price,
+  quantity,
+  date,
+  location
+};
+
+This will add the sweetness and tartness stats to your Lemonade Sales object based on the parameters you pass in. You can then use these stats to display information about the drink on the home screen or in your sales records.
+
+<div class="container">
+  <form>
+    <h1 class="text-center mb-5">Sell Lemonade</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Batch Information</h2>
+        <div class="mb-3">
+          <label for="lemon-type" class="form-label">Type of Lemons</label>
+          <input type="text" class="form-control" id="lemon-type">
+        </div>
+        <div class="mb-3">
+          <label for="lemon-qty" class="form-label">Quantity of Lemons</label>
+          <input type="number" class="form-control" id="lemon-qty" min="0" value="0">
+        </div>
+        <div class="mb-3">
+          <label for="water-type" class="form-label">Type of Water</label>
+          <input type="text" class="form-control" id="water-type">
+        </div>
+        <div class="mb-3">
+          <label for="water-qty" class="form-label">Quantity of Water (in cups)</label>
+          <input type="number" class="form-control" id="water-qty" min="0" value="0">
+        </div>
+        <div class="mb-3">
+          <label for="sugar-type" class="form-label">Type of Sugar</label>
+          <input type="text" class="form-control" id="sugar-type">
+        </div>
+        <div class="mb-3">
+          <label for="sugar-qty" class="form-label">Quantity of Sugar (in grams)</label>
+          <input type="number" class="form-control" id="sugar-qty" min="0" value="0">
+        </div>
+        <div class="mb-3">
+          <label for="ice-type" class="form-label">Type of Ice</label>
+          <input type="text" class="form-control" id="ice-type">
+        </div>
+        <div class="mb-3">
+          <label for="ice-qty" class="form-label">Quantity of Ice (in cups)</label>
+          <input type="number" class="form-control" id="ice-qty" min="0" value="0">
+        </div>
+        <button type="button" class="btn btn-primary" id="calculate-btn">Calculate</button>
+      </div>
+      <div class="col-md-6">
+        <h2>Batch Statistics</h2>
+        <div class="mb-3">
+          <label for="sweetness" class="form-label">Sweetness</label>
+          <input type="text" class="form-control" id="sweetness" disabled>
+        </div>
+        <div class="mb-3">
+          <label for="tartness" class="form-label">Tartness</label>
+          <input type="text" class="form-control" id="tartness" disabled>
+        </div>
+        <div class="mb-3">
+          <label for="batch-size" class="form-label">Batch Size (in cups)</label>
+          <input type="text" class="form-control" id="batch-size" disabled>
+        </div>
+        <button type="submit" class="btn btn-primary">Sell Lemonade</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <form>
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="lemonType" class="form-label">Type of Lemons</label>
+        <select class="form-select" id="lemonType" required>
+          <option value="">Choose...</option>
+          <option value="meyer">Meyer</option>
+          <option value="lisbon">Lisbon</option>
+          <option value="eureka">Eureka</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="lemonQuantity" class="form-label">Quantity of Lemons</label>
+        <input type="number" class="form-control" id="lemonQuantity" required>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="waterType" class="form-label">Type of Water</label>
+        <select class="form-select" id="waterType" required>
+          <option value="">Choose...</option>
+          <option value="spring">Spring</option>
+          <option value="filtered">Filtered</option>
+          <option value="tap">Tap</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="waterQuantity" class="form-label">Quantity of Water (cups)</label>
+        <input type="number" class="form-control" id="waterQuantity" required>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="sugarType" class="form-label">Type of Sugar</label>
+        <select class="form-select" id="sugarType" required>
+          <option value="">Choose...</option>
+          <option value="white">White</option>
+          <option value="brown">Brown</option>
+          <option value="honey">Honey</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="sugarQuantity" class="form-label">Quantity of Sugar (grams)</label>
+        <input type="number" class="form-control" id="sugarQuantity" required>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="iceType" class="form-label">Type of Ice</label>
+        <select class="form-select" id="iceType" required>
+          <option value="">Choose...</option>
+          <option value="cubed">Cubed</option>
+          <option value="crushed">Crushed</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="iceQuantity" class="form-label">Quantity of Ice (cups)</label>
+        <input type="number" class="form-control" id="iceQuantity" required>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="date" class="form-label">Date and Time of Sale</label>
+        <input type="datetime-local" class="form-control" id="date" required>
+      </div>
+      <div class="col-md-6">
+        <label for="
