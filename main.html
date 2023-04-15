@@ -13,10 +13,17 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-4">
-				<h1>Inventory</h1>
-				<button class="btn btn-primary mb-3" id="pantryButton">Pantry</button>
-				<button class="btn btn-primary mb-3" id="fridgeButton">Fridge</button>
-                <button class="btn btn-primary mb-3" id="freezerButton">Freezer</button>
+                <h1>Inventory</h1>
+                <div class="nav nav-tabs">
+                    <li class="nav-item" id="pantryButton"><a href="#" class="nav-link active" aria-current="page">Pantry</a></li>
+                    <li class="nav-item" id="fridgeButton"><a href="#" class="nav-link">Fridge</a></li>
+                    <li class="nav-item" id="freezerButton"><a href="#" class="nav-link">Freezer</a></li>
+                </div>
+                <!-- <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                    <button class="btn btn-primary mb-3" id="pantryButton">Pantry</button>
+                    <button class="btn btn-primary mb-3" id="fridgeButton">Fridge</button>
+                    <button class="btn btn-primary mb-3" id="freezerButton">Freezer</button>
+                </div> -->
 				<div id="inventoryList"></div>
 			</div>
             <div id="inventoryDisplay"></div>
@@ -24,18 +31,6 @@
 				<canvas id="lemonadeCanvas"></canvas>
 			</div>
 		</div>
-        <h1>My Inventory</h1>
-  
-        <ul id="pantry">
-          <!-- Pantry items will be added here -->
-        </ul>
-        
-        <ul id="fridge">
-          <!-- Fridge items will be added here -->
-        </ul>
-        <ul id="freezer">
-            <!-- Freezer items will be added here -->
-        </ul>
 	</div>
     <div>
         <p>Recipe</p>
@@ -86,19 +81,27 @@
             const pantryButton = document.getElementById('pantryButton');
             const fridgeButton = document.getElementById('fridgeButton');
             const freezerButton = document.getElementById('freezerButton');
-            const inventoryDisplay = document.getElementById('inventoryDisplay');
+            const inventoryList = document.getElementById('inventoryList');
+
+            function capitalizeFirstLetter(str) {
+                const regex = /^[a-z]+$/;
+                if (regex.test(str)) {
+                    return str.charAt(0).toUpperCase() + str.slice(1);
+                } else {
+                    return str;
+                }
+            }
 
             function buildDisplay(item, storageLocation) {
                 const itemLi = document.createElement("li");
-                        itemLi.classList.add("inventory-item");
-                        itemLi.textContent = `${item}: ${inventory[item].quantity}`;
-                        document.querySelector(`#${storageLocation}`).appendChild(itemLi);
+                const location = capitalizeFirstLetter(storageLocation);
+                itemLi.classList.add("inventory-item");
+                itemLi.textContent = `${item}: ${inventory[item].quantity}`;
+                document.querySelector(`#${storageLocation}`).appendChild(itemLi);
             }
 
             function loadFridgeView() {
-                // Access items in fridge and display them in the inventoryDisplay div
-                inventoryDisplay.innerHTML = '<p>Fridge items:</p>';
-                // Loop through fridge items and add them to the list
+                inventoryList.innerHTML = `<p>Fridge items:</p><ul id="fridge"></ul>`;
                 for (const item in inventory) {
                     if (inventory[item].storageLocation === "fridge") {
                         buildDisplay(item, "fridge");
@@ -107,7 +110,7 @@
             }
 
             function loadFreezerView() {
-                inventoryDisplay.innerHTML = '<p>Freezer items:</p>';
+                inventoryList.innerHTML = `<p>Freezer items:</p><ul id="freezer"></ul>`;
                 for (const item in inventory) {
                     if (inventory[item].storageLocation === "freezer") {
                         buildDisplay(item, "freezer");
@@ -116,7 +119,7 @@
             }
 
             function loadPantryView() {
-                inventoryDisplay.innerHTML = '<p>Pantry items:</p>';
+                inventoryList.innerHTML = `<p>Pantry items:</p><ul id="pantry"></ul>`;
                 for (const item in inventory) {
                     if (inventory[item].storageLocation === "pantry") {
                         buildDisplay(item, "pantry");
@@ -128,6 +131,9 @@
             freezerButton.addEventListener('click', loadFreezerView);
             fridgeButton.addEventListener('click', loadFridgeView);
             pantryButton.addEventListener('click', loadPantryView);
+            freezerButton.addEventListener('touchstart', loadFreezerView);
+            fridgeButton.addEventListener('touchstart', loadFridgeView);
+            pantryButton.addEventListener('touchstart', loadPantryView);
         };	
 
         document.addEventListener("DOMContentLoaded", homeScreen);
