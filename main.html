@@ -101,30 +101,36 @@
             }
 
             function loadFridgeView() {
+                loadingStart();
                 inventoryList.innerHTML = `<p>Fridge items:</p><ul id="fridge"></ul>`;
                 for (const item in inventory) {
                     if (inventory[item].storageLocation === "fridge") {
                         buildDisplay(item, "fridge");
                     }
                 }
+                loadingEnd();
             }
 
             function loadFreezerView() {
+                loadingStart();
                 inventoryList.innerHTML = `<p>Freezer items:</p><ul id="freezer"></ul>`;
                 for (const item in inventory) {
                     if (inventory[item].storageLocation === "freezer") {
                         buildDisplay(item, "freezer");
                     }
                 }
+                loadingEnd();
             }
 
             function loadPantryView() {
+                loadingStart();
                 inventoryList.innerHTML = `<p>Pantry items:</p><ul id="pantry"></ul>`;
                 for (const item in inventory) {
                     if (inventory[item].storageLocation === "pantry") {
                         buildDisplay(item, "pantry");
                     }
                 }
+                loadingEnd();
             }
 
             // Event Listeners
@@ -169,6 +175,10 @@
         }
 
     // Event Listeners
+        // document.getElementById('pantryButton');
+        // document.getElementById('fridgeButton');
+        // document.getElementById('freezerButton');
+        // document.getElementById('inventoryList');
         document.getElementById("lemonade").addEventListener("click", clickEventHandler);
         document.getElementById("navigation").addEventListener("click", navClickEventHandler);
         document.addEventListener("DOMContentLoaded", homeScreen);
