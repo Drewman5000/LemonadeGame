@@ -389,3 +389,14 @@ function generatePricePoint(customer) {
 In this example, we start with a minimum price of 0.5 and a maximum price of 5. We then adjust these values based on the customer's attributes. For example, if the customer is discerning, we increase the minimum price by 0.5 and the maximum price by 1. If the customer is cheap, we decrease the minimum price by 0.5 and the maximum price by 1.
 
 Finally, we generate a random price point within the adjusted range using the Math.random() function and return it. This price point will be used to determine if the customer buys a lemonade and how happy they are with the price.
+
+Inline responsive form classes in bootstrap:
+https://getbootstrap.com/docs/5.3/forms/layout/#inline-forms
+
+
+Accordion for Inventory view versus Recipe view
+https://getbootstrap.com/docs/5.3/components/accordion/
+
+recipe forms validation:
+https://getbootstrap.com/docs/5.3/forms/validation/
+

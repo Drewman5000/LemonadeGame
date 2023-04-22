@@ -29,10 +29,10 @@
         </div>
         <div>
             <p>Recipe</p>
-            <form>
-                <div class="row">
-                    <div class="input-group">
-                    <div class="col-mb-3">
+            <form class="row g-3">
+                <div class="input-group">
+        
+                    <div class="col mb-3">
                         <div class="form-floating">
                             <select class="form-select" id="lemonType" name="lemonType" aria-label="Floating label select">
                                 <option selected>Select from inventory</option>
@@ -48,39 +48,43 @@
                             <label for="lemonType">Pick a type of Lemon</label>
                         </div>
                     </div>
-                    <div class="col-mb-3">
+                    <div class="col mb-3">
                         <div class="form-floating">
                             <input type="number" class="form-control" id="lemonQuantity" name="lemonQuantity">
                             <label for="lemonQuantity" class="form-label">Lemon Quantity</label>
                         </div>
                     </div>
-                    </div>
+                    
                 </div>
                 <div class="row">
-                    <div class="mb-3">
+                    <div class="col mb-3">
                     <label for="waterType" class="form-label">Water Type</label>
                     <input type="text" class="form-control" id="waterType" name="waterType">
                     </div>
-                    <div class="mb-3">
+                    <div class="col mb-3">
                     <label for="waterQuantity" class="form-label">Water Quantity (Cups)</label>
                     <input type="number" class="form-control" id="waterQuantity" name="waterQuantity">
                     </div>
                 </div>
-                <div class="mb-3">
-                <label for="sugarType" class="form-label">Sugar Type</label>
-                <input type="text" class="form-control" id="sugarType" name="sugarType">
+                <div class="row">
+                    <div class="col mb-3">
+                    <label for="sugarType" class="form-label">Sugar Type</label>
+                    <input type="text" class="form-control" id="sugarType" name="sugarType">
+                    </div>
+                    <div class="col mb-3">
+                    <label for="sugarQuantity" class="form-label">Sugar Quantity (Grams)</label>
+                    <input type="number" class="form-control" id="sugarQuantity" name="sugarQuantity">
+                    </div>
                 </div>
-                <div class="mb-3">
-                <label for="sugarQuantity" class="form-label">Sugar Quantity (Grams)</label>
-                <input type="number" class="form-control" id="sugarQuantity" name="sugarQuantity">
-                </div>
-                <div class="mb-3">
-                <label for="iceType" class="form-label">Ice Type</label>
-                <input type="text" class="form-control" id="iceType" name="iceType">
-                </div>
-                <div class="mb-3">
-                <label for="iceQuantity" class="form-label">Ice Quantity (Cups)</label>
-                <input type="number" class="form-control" id="iceQuantity" name="iceQuantity">
+                <div class="row">
+                    <div class="col mb-3">
+                    <label for="iceType" class="form-label">Ice Type</label>
+                    <input type="text" class="form-control" id="iceType" name="iceType">
+                    </div>
+                    <div class="col mb-3">
+                    <label for="iceQuantity" class="form-label">Ice Quantity (Cups)</label>
+                    <input type="number" class="form-control" id="iceQuantity" name="iceQuantity">
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
