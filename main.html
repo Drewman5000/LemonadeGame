@@ -30,21 +30,41 @@
         <div>
             <p>Recipe</p>
             <form>
-                <div class="mb-3">
-                <label for="lemonType" class="form-label">Lemon Type</label>
-                <input type="text" class="form-control" id="lemonType" name="lemonType">
+                <div class="row">
+                    <div class="input-group">
+                    <div class="col-mb-3">
+                        <div class="form-floating">
+                            <select class="form-select" id="lemonType" name="lemonType" aria-label="Floating label select">
+                                <option selected>Select from inventory</option>
+                                <option value="Tree Lemons">Tree Lemons</option>
+                                <option value="Neighbor's Tree Lemons">Neighbor's Tree</option>
+                                <option value="Church Lemons">Church Lemons</option>
+                                <option value="Store">Store Lemons</option>
+                                <option value="Big Box Store">Big Box Store Lemons</option>
+                                <option value="Commercial Supplier">Commercial Supplier Lemons</option>
+                                <option value="Concentrate">Concentrate</option>
+                                <option value="Organic">Organic Lemons</option>
+                            </select>
+                            <label for="lemonType">Pick a type of Lemon</label>
+                        </div>
+                    </div>
+                    <div class="col-mb-3">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="lemonQuantity" name="lemonQuantity">
+                            <label for="lemonQuantity" class="form-label">Lemon Quantity</label>
+                        </div>
+                    </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                <label for="lemonQuantity" class="form-label">Lemon Quantity</label>
-                <input type="number" class="form-control" id="lemonQuantity" name="lemonQuantity">
-                </div>
-                <div class="mb-3">
-                <label for="waterType" class="form-label">Water Type</label>
-                <input type="text" class="form-control" id="waterType" name="waterType">
-                </div>
-                <div class="mb-3">
-                <label for="waterQuantity" class="form-label">Water Quantity (Cups)</label>
-                <input type="number" class="form-control" id="waterQuantity" name="waterQuantity">
+                <div class="row">
+                    <div class="mb-3">
+                    <label for="waterType" class="form-label">Water Type</label>
+                    <input type="text" class="form-control" id="waterType" name="waterType">
+                    </div>
+                    <div class="mb-3">
+                    <label for="waterQuantity" class="form-label">Water Quantity (Cups)</label>
+                    <input type="number" class="form-control" id="waterQuantity" name="waterQuantity">
+                    </div>
                 </div>
                 <div class="mb-3">
                 <label for="sugarType" class="form-label">Sugar Type</label>
