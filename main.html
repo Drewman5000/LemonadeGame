@@ -101,10 +101,9 @@
 
 	<script>
         function loadView(options) {
-            let id = typeof options.id === "undefined" ? "lemonade" : options.id;
-            let cb = typeof options.callback === "undefined" ? function() {} : options.callback;
+            const id = typeof options.id === "undefined" ? "lemonade" : options.id;
+            const cb = typeof options.callback === "undefined" ? function() {} : options.callback;
             loadingStart();
-            // TODO: finish this loading flow
             const html = options.html;
             document.getElementById(id).innerHTML = html;
             loadingEnd();
@@ -200,23 +199,21 @@
 
             let lemonsOptions = dropDownListOptionsArrays.lemonTypes;
             // apply filter here from callback params, in from inventory.
-            console.log("lemonsOptions: " + lemonsOptions);
 
             addUniqueOptionsToDropdownList(lemonSelect, lemonsOptions);
-
+            console.info("building drop down options");
+            loadingEnd();
         }
     // Loading Functions
 
         function loadHomeView() {
-            // get home.html text
             const res = fetch("home.html")
                 .then(res => res.text())
                 .then(html => {
-                    console.log("html from file: " + html);
                     loadView({html, callback: afterHomeViewLoads //, params: {title: "more Functions"}
                     });
                 });
-            return res;
+            return res; // need this?
         }
 
         function activeTabChange(e) {
