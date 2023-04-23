@@ -177,15 +177,15 @@
             pantryButton.addEventListener('touchstart', loadPantryView);
         };
 
-        function addUniqueOptionsToDropdownList(domElement, optionsArray, index) {
+        function addUniqueOptionsToDropdownList(domElement, optionsArray) {
         let currentlyAdded = [];
         domElement.innerHTML = "<option selected>Select...</option>";
           optionsArray.forEach((r) => {
-            if (currentlyAdded.indexOf(r[index]) === -1) {
+            if (currentlyAdded.indexOf(r) === -1) {
               let option = document.createElement("option");
-              option.textContent = r[index];
+              option.textContent = r;
               domElement.appendChild(option);
-              currentlyAdded.push(r[index]);
+              currentlyAdded.push(r);
             }
           });
         }
@@ -202,22 +202,21 @@
             // apply filter here from callback params, in from inventory.
             console.log("lemonsOptions: " + lemonsOptions);
 
-            addUniqueOptionsToDropdownList(lemonSelect, lemonsOptions, 0);
+            addUniqueOptionsToDropdownList(lemonSelect, lemonsOptions);
+
         }
     // Loading Functions
-        // function loadHomeView() {
-        //     loadView({func: "loadHomeView", callback: afterHomeViewLoads //, params: {title: "more Functions"}
-        //     })
-        // }
+
         function loadHomeView() {
             // get home.html text
             const res = fetch("home.html")
-            .then(res => res.text())
-            .then(html => {
-                // console.log(html);
-                return {html, callback: afterHomeViewLoads //, params: {title: "more Functions"}
-                } ;
-            })
+                .then(res => res.text())
+                .then(html => {
+                    console.log("html from file: " + html);
+                    loadView({html, callback: afterHomeViewLoads //, params: {title: "more Functions"}
+                    });
+                });
+            return res;
         }
 
         function activeTabChange(e) {
