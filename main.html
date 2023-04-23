@@ -101,11 +101,16 @@
 
 	<script>
         function loadView(options) {
-            var id = typeof options.id === "undefined" ? "lemonade" : options.id;
-            var cb = typeof options.callback === "undefined" ? function() {} : options.callback;
+            let id = typeof options.id === "undefined" ? "lemonade" : options.id;
+            let cb = typeof options.callback === "undefined" ? function() {} : options.callback;
             loadingStart();
             // TODO: finish this loading flow
+            const html = options.html;
+            document.getElementById(id).innerHTML = html;
+            loadingEnd();
+            typeof options.params === "undefined" ? cb() : cb(options.params);
         }
+
         function homeScreen() {
             // Get references to the interface elements
             const pantryButton = document.getElementById('pantryButton');
@@ -184,9 +189,34 @@
             }
           });
         }
+
+        function afterHomeViewLoads(params) {
+            //loading
+            loadingStart();
+            let lemonSelect = document.getElementById("lemonType");
+            let waterSelect = document.getElementById("waterType");
+            let sugarSelect = document.getElementById("sugarType");
+            let iceSelect = document.getElementById("iceType");
+
+            let lemonsOptions = dropDownListOptionsArrays.lemonTypes;
+            // apply filter here from callback params, in from inventory.
+            console.log("lemonsOptions: " + lemonsOptions);
+
+            addUniqueOptionsToDropdownList(lemonSelect, lemonsOptions, 0);
+        }
     // Loading Functions
+        // function loadHomeView() {
+        //     loadView({func: "loadHomeView", callback: afterHomeViewLoads //, params: {title: "more Functions"}
+        //     })
+        // }
         function loadHomeView() {
-            loadView({func: "loadHomeView", callback: afterHomeViewLoads //, params: {title: "more Functions"}
+            // get home.html text
+            const res = fetch("home.html")
+            .then(res => res.text())
+            .then(html => {
+                // console.log(html);
+                return {html, callback: afterHomeViewLoads //, params: {title: "more Functions"}
+                } ;
             })
         }
 
