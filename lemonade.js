@@ -52,24 +52,18 @@ const inventory = {
   inventory.lemons.freshness = 0.8;
   inventory.lemons.storageLocation = "fridge";
   
-  inventory.sugar.quantity += 5;
+  inventory.sugar.quantity += 15;
   inventory.sugar.purchaseWeek = 2;
   inventory.sugar.expirationWeek = 20;
   inventory.sugar.storageLocation = "pantry";
   
-  inventory.water.quantity += 20;
+  inventory.water.quantity += 25;
   inventory.water.purchaseWeek = 3;
   inventory.water.storageLocation = "fridge";
   
   inventory.ice.quantity += 50;
   inventory.ice.purchaseWeek = 4;
   inventory.ice.storageLocation = "freezer";
-  
-  // Subtract some ingredients from the inventory
-  inventory.lemons.quantity -= 2;
-  inventory.sugar.quantity -= 1;
-  inventory.water.quantity -= 5;
-  inventory.ice.quantity -= 10;
   
   // Check the current inventory levels
   console.log("Current inventory levels:");
@@ -78,3 +72,9 @@ const inventory = {
   console.log(`Water: ${inventory.water.quantity}`);
   console.log(`Ice: ${inventory.ice.quantity}`);
   
+const dropDownListOptionsArrays = {
+  lemonTypes: ["Tree Lemons", "Store Lemons", "Neighbor's Tree Lemons", "Church Lemons", "Big Box Store Lemons", "Commercial Supplier", "Organic", "Concentrate"],
+  waterTypes: ["Tap Water", "Bottled Water", "Big Box Brand Water", "Deluxe Water", "Commercial Supplier", "Filtered Tap"],
+  sugarTypes: ["White Sugar", "Cane Sugar", "Honey", "Raw Sugar", "Organic Sugar"],
+  iceTypes: ["Tap Water", "Ice Machine", "Filtered Tap", "Bottled Water", "Big box Brand Water", "Deluxe Water", "Commercial Supplier", "Filtered Tap"]
+}

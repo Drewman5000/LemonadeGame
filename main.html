@@ -100,6 +100,12 @@
     <script src="lemonade.js"></script>
 
 	<script>
+        function loadView(options) {
+            var id = typeof options.id === "undefined" ? "lemonade" : options.id;
+            var cb = typeof options.callback === "undefined" ? function() {} : options.callback;
+            loadingStart();
+            // TODO: finish this loading flow
+        }
         function homeScreen() {
             // Get references to the interface elements
             const pantryButton = document.getElementById('pantryButton');
@@ -165,7 +171,24 @@
             fridgeButton.addEventListener('touchstart', loadFridgeView);
             pantryButton.addEventListener('touchstart', loadPantryView);
         };
+
+        function addUniqueOptionsToDropdownList(domElement, optionsArray, index) {
+        let currentlyAdded = [];
+        domElement.innerHTML = "<option selected>Select...</option>";
+          optionsArray.forEach((r) => {
+            if (currentlyAdded.indexOf(r[index]) === -1) {
+              let option = document.createElement("option");
+              option.textContent = r[index];
+              domElement.appendChild(option);
+              currentlyAdded.push(r[index]);
+            }
+          });
+        }
     // Loading Functions
+        function loadHomeView() {
+            loadView({func: "loadHomeView", callback: afterHomeViewLoads //, params: {title: "more Functions"}
+            })
+        }
 
         function activeTabChange(e) {
             var navLinks = document.querySelectorAll(".nav .nav-link");

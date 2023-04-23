@@ -1,0 +1,78 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4" id="navigation">
+            <h1>Inventory</h1>
+            <nav class="nav nav-tabs" role="navigation">
+                <button class="nav-link active" id="pantryButton" aria-selected="true">Pantry</button>
+                <button class="nav-link" id="fridgeButton" aria-selected="false">Fridge</button>
+                <button class="nav-link" id="freezerButton" aria-selected="false">Freezer</button>
+            </nav>
+            <div id="inventoryList"></div>
+        </div>
+        <div class="col-md-8">
+            <canvas id="lemonadeCanvas"></canvas>
+        </div>
+    </div>
+</div>
+<div>
+    <p>Recipe</p>
+    <form class="row g-3">
+        <div class="input-group">
+
+            <div class="col mb-3">
+                <div class="form-floating">
+                    <select class="form-select" id="lemonType" name="lemonType" aria-label="Floating label select">
+                        <option selected>Select from inventory</option>
+                        <option value="Tree Lemons">Tree Lemons</option>
+                        <option value="Neighbor's Tree Lemons">Neighbor's Tree</option>
+                        <option value="Church Lemons">Church Lemons</option>
+                        <option value="Store">Store Lemons</option>
+                        <option value="Big Box Store">Big Box Store Lemons</option>
+                        <option value="Commercial Supplier">Commercial Supplier Lemons</option>
+                        <option value="Concentrate">Concentrate</option>
+                        <option value="Organic">Organic Lemons</option>
+                    </select>
+                    <label for="lemonType">Pick a type of Lemon</label>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="form-floating">
+                    <input type="number" class="form-control" id="lemonQuantity" name="lemonQuantity">
+                    <label for="lemonQuantity" class="form-label">Lemon Quantity</label>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+            <label for="waterType" class="form-label">Water Type</label>
+            <input type="text" class="form-control" id="waterType" name="waterType">
+            </div>
+            <div class="col mb-3">
+            <label for="waterQuantity" class="form-label">Water Quantity (Cups)</label>
+            <input type="number" class="form-control" id="waterQuantity" name="waterQuantity">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+            <label for="sugarType" class="form-label">Sugar Type</label>
+            <input type="text" class="form-control" id="sugarType" name="sugarType">
+            </div>
+            <div class="col mb-3">
+            <label for="sugarQuantity" class="form-label">Sugar Quantity (Grams)</label>
+            <input type="number" class="form-control" id="sugarQuantity" name="sugarQuantity">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+            <label for="iceType" class="form-label">Ice Type</label>
+            <input type="text" class="form-control" id="iceType" name="iceType">
+            </div>
+            <div class="col mb-3">
+            <label for="iceQuantity" class="form-label">Ice Quantity (Cups)</label>
+            <input type="number" class="form-control" id="iceQuantity" name="iceQuantity">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
