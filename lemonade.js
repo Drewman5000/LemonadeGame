@@ -78,3 +78,38 @@ const dropDownListOptionsArrays = {
   sugarTypes: ["White Sugar", "Cane Sugar", "Honey", "Raw Sugar", "Organic Sugar"],
   iceTypes: ["Tap Water", "Ice Machine", "Filtered Tap", "Bottled Water", "Big box Brand Water", "Deluxe Water", "Commercial Supplier", "Filtered Tap"]
 }
+
+function findLinearPriceEquilibrium(supplyInputs, demandInputs) {
+  // Extract slope (m) and intercept (b) values from supplyInputs and demandInputs
+  const supplySlope = supplyInputs.slope;
+  const supplyIntercept = supplyInputs.intercept;
+  
+  const demandSlope = demandInputs.slope;
+  const demandIntercept = demandInputs.intercept;
+
+  // Calculate the intersection point
+  const quantity = (demandIntercept - supplyIntercept) / (supplySlope - demandSlope);
+  const price = supplySlope * quantity + supplyIntercept; // or demandSlope * quantity + demandIntercept
+
+  // Return the intersection point
+  return { quantity, price };
+}
+
+function buyLinearPriceEquilibrium(result, sellLinearPriceEquilibrium) {
+  // Compare prices
+  const buy = result.price >= sellLinearPriceEquilibrium.price;
+
+  // Compare quantities
+  let quantity;
+  if (result.quantity < sellLinearPriceEquilibrium.quantity) { 
+    quantity = 0 
+  } else if (result.quantity >= sellLinearPriceEquilibrium.quantity) {
+    quantity = 1; // If buy quantity is higher
+  } else if (result.quantity >= sellLinearPriceEquilibrium.quantity * 2) {
+      quantity = 2; // If buy quantity is sufficiently higher
+  } else {
+      quantity = 1; // If buy quantity is lower
+  }
+
+  return { buy, quantity };
+}
